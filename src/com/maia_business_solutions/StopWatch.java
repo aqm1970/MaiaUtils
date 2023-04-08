@@ -26,11 +26,16 @@ public class StopWatch
   
   public long elapsed()
   {
-    return elapsed;
+    long retVal = elapsed;
+    
+    if (retVal == 0)
+      retVal = new Date().getTime() - startTime.getTime();
+    
+    return retVal;
   }
 
   public String elapsed(final TimeUnit timeUnit)
   {
-    return Long.toString(timeUnit.convert(elapsed, TimeUnit.MILLISECONDS));
+    return Long.toString(timeUnit.convert(elapsed(), TimeUnit.MILLISECONDS));
   }
 }
