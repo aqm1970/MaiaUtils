@@ -27,6 +27,18 @@ public class Pair<F, S>
     return second;
   }
 
+  /* (non-Javadoc)
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString()
+  {
+    StringBuilder builder = new StringBuilder();
+    builder.append("Pair [first=").append(first).append(", second=")
+        .append(second).append("]");
+    return builder.toString();
+  }
+
   public static <F, S> Pair<F, S> createPair(final F first, final S second)
   {
     return new Pair<F, S>(first, second);
