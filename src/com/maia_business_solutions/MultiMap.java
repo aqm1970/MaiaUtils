@@ -9,18 +9,29 @@ import java.util.Set;
 
 public class MultiMap<K, V> implements Map<K, Collection<V>>
 {
-  private final LinkedHashMap<K, Collection<V>> internalMap = new LinkedHashMap<>();
+  private final Map<K, Collection<V>> internalMap;
   
-  private Class<? extends Collection<V>> clazz;
+  private final Class<? extends Collection<V>> clazz;
   
   public MultiMap()
   {
-    this(new ArrayList<>());
+    this(new LinkedHashMap<>(), new ArrayList<>());
+  }
+  
+  public MultiMap(final Map<K, Collection<V>> map)
+  {
+    this(map, new ArrayList<>());
+  }
+  
+  public MultiMap(final Collection<V> collection)
+  {
+    this(new LinkedHashMap<>(), collection);
   }
   
   @SuppressWarnings("unchecked")
-  public MultiMap(final Collection<V> collection)
+  public MultiMap(final Map<K, Collection<V>> map, final Collection<V> collection)
   {
+    internalMap = map;
     clazz = (Class<? extends Collection<V>>) collection.getClass();
   }
   
