@@ -74,7 +74,7 @@ public class MultiMap<K, V> implements Map<K, Collection<V>>
     return internalMap.get(key);
   }
 
-  public boolean put(K key, V value)
+  public boolean putValue(K key, V value)
   {
     Collection<V> values = get(key);
 
