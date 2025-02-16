@@ -7,8 +7,7 @@
 
  buildscript {    
   repositories {
-  // Bintray's repository - a fast Maven Central mirror & more
-    jcenter()    
+  	// Bintray's repository - a fast Maven Central mirror & more
     mavenCentral()
   }
 }
@@ -16,7 +15,6 @@
 // repositories for Jar's you access in your code
 repositories {   
   mavenCentral()
-  jcenter()
 }
 
 // standard Java tasks
@@ -27,5 +25,7 @@ dependencies {
   api 'org.json:json:20090211'
 }
 
-sourceCompatibility = 1.10
-targetCompatibility = 1.11
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
