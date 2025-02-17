@@ -22,7 +22,7 @@ apply plugin: 'java'
 apply plugin: 'java-library'
 
 dependencies {
-  api 'org.json:json:20090211'
+  api libs.json
 }
 
 java {
